@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de Gestão para Agricultura Sustentável - Cadastre agricultores e acesse chatbot especializado">
+    <meta name="keywords" content="agricultura sustentável, gestão agrícola, chatbot agrícola, agricultores">
+    <meta name="author" content="Sistema Agrícola Sustentável">
+    <title>Sistema de Gestão para Agricultura Sustentável</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🌱</div>
+                    <h1>Sistema Agrícola Sustentável</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Navigation Tabs -->
+            <nav class="tabs">
+                <button class="tab-btn active" data-tab="dashboard">Dashboard</button>
+                <button class="tab-btn" data-tab="cadastro">Cadastrar</button>
+                <button class="tab-btn" data-tab="lista">Agricultores</button>
+                <button class="tab-btn" data-tab="chatbot">Chatbot</button>
+            </nav>
+
+            <!-- Dashboard Tab -->
+            <section id="dashboard" class="tab-content active">
+                <div class="section-header">
+                    <div class="section-icon">📊</div>
+                    <h2>Dashboard</h2>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <p class="stat-label">Total de Agricultores</p>
+                            <p class="stat-value" id="total-agricultores">0</p>
+                        </div>
+                        <div class="stat-icon">👥</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <p class="stat-label">Estados Atendidos</p>
+                            <p class="stat-value" id="total-estados">0</p>
+                        </div>
+                        <div class="stat-icon">📍</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <p class="stat-label">Cidades Atendidas</p>
+                            <p class="stat-value" id="total-cidades">0</p>
+                        </div>
+                        <div class="stat-icon">📈</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <p class="stat-label">Impacto Sustentável</p>
+                            <p class="stat-value" id="impacto">Aguardando</p>
+                        </div>
+                        <div class="stat-icon">🍃</div>
+                    </div>
+                </div>
+                <div id="empty-state" class="empty-state">
+                    <div class="empty-icon">🌱</div>
+                    <h3>Bem-vindo ao Sistema</h3>
+                    <p>Comece cadastrando agricultores para visualizar estatísticas e métricas de sustentabilidade.</p>
+                </div>
+            </section>
+
+            <!-- Cadastro Tab -->
+            <section id="cadastro" class="tab-content">
+                <div class="section-header">
+                    <div class="section-icon">➕</div>
+                    <h2 id="form-title">Cadastrar Agricultor</h2>
+                </div>
+                <form id="farmer-form" class="farmer-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" placeholder="Digite o nome do agricultor" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cnpj">CNPJ</label>
+                            <input type="text" id="cnpj" placeholder="00.000.000/0000-00" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" id="cidade" placeholder="Digite a cidade" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="estado">Estado</label>
+                            <input type="text" id="estado" placeholder="Ex: SP, RJ, MG" required>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" id="cancel-btn" class="btn btn-secondary" style="display: none;">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">
+                            <span id="submit-text">Cadastrar</span>
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Lista Tab -->
+            <section id="lista" class="tab-content">
+                <div class="section-header">
+                    <div class="section-icon">📋</div>
+                    <h2>Lista de Agricultores</h2>
+                </div>
+                <div id="farmers-list" class="farmers-grid"></div>
+                <div id="lista-empty-state" class="empty-state" style="display: none;">
+                    <div class="empty-icon">📋</div>
+                    <h3>Nenhum agricultor cadastrado</h3>
+                    <p>Comece cadastrando seu primeiro agricultor na aba "Cadastrar"</p>
+                </div>
+            </section>
+
+            <!-- Chatbot Tab -->
+            <section id="chatbot" class="tab-content">
+                <div class="section-header">
+                    <div class="section-icon">🤖</div>
+                    <h2>Chatbot Sustentável</h2>
+                </div>
+                <div class="chatbot-options">
+                    <button class="chatbot-option" data-action="insumos">
+                        <div class="option-icon">📦</div>
+                        <h3>Calcular Insumos</h3>
+                        <p>Calcule a quantidade necessária de insumos</p>
+                    </button>
+                    <button class="chatbot-option" data-action="agua">
+                        <div class="option-icon">💧</div>
+                        <h3>Uso de Água</h3>
+                        <p>Calcule o uso de água por área</p>
+                    </button>
+                    <button class="chatbot-option" data-action="irrigacao">
+                        <div class="option-icon">💧</div>
+                        <h3>Economizar Água</h3>
+                        <p>Dicas para economizar água na irrigação</p>
+                    </button>
+                    <button class="chatbot-option" data-action="produtividade">
+                        <div class="option-icon">🌱</div>
+                        <h3>Produtividade</h3>
+                        <p>Como aumentar a produtividade sustentável</p>
+                    </button>
+                    <button class="chatbot-option" data-action="adubacao">
+                        <div class="option-icon">🌿</div>
+                        <h3>Adubação Orgânica</h3>
+                        <p>Técnicas de adubação orgânica</p>
+                    </button>
+                </div>
+                <div id="chatbot-result" class="chatbot-result"></div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Sistema Agrícola Sustentável. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Modal for Delete Confirmation -->
+    <div id="delete-modal" class="modal">
+        <div class="modal-content">
+            <h3>Confirmar exclusão</h3>
+            <p id="delete-message"></p>
+            <div class="modal-actions">
+                <button id="cancel-delete" class="btn btn-secondary">Cancelar</button>
+                <button id="confirm-delete" class="btn btn-danger">Excluir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Chatbot Input -->
+    <div id="chatbot-modal" class="modal">
+        <div class="modal-content">
+            <h3 id="chatbot-modal-title"></h3>
+            <div id="chatbot-modal-body"></div>
+            <div class="modal-actions">
+                <button id="cancel-chatbot" class="btn btn-secondary">Fechar</button>
+                <button id="submit-chatbot" class="btn btn-primary">Calcular</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
