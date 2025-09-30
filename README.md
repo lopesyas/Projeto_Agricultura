@@ -19,14 +19,10 @@ frontend/ → Contém os arquivos da interface do usuário (HTML, CSS e JS).
 backend/ → Contém a lógica do sistema e o chatbot, desenvolvidos em Python.
 
 🛠️ Tecnologias Utilizadas
-
-HTML5 → Estrutura da interface
-
-CSS3 → Estilização responsiva e simples
-
-JavaScript → Interatividade no frontend
-
-Python 3 → Lógica e execução do sistema no backend
+-- HTML5 → Estrutura da interface
+-- CSS3 → Estilização responsiva e simples
+-- JavaScript → Interatividade no frontend
+-- Python 3 → Lógica e execução do sistema no backend
 
 🚀 Como Executar
 
@@ -50,18 +46,13 @@ Abra o frontend
 Vá até a pasta frontend e abra o arquivo index.html no navegador.
 
 🤖 Funcionalidades Principais
-
-Cadastro de agricultores 👨‍🌾
-
-Menu interativo no terminal
-
-Chatbot temático para assistência 🌿
-
-Interface web leve e intuitiva
+-- Cadastro de agricultores 👨‍🌾
+-- Menu interativo no terminal
+-- Chatbot temático para assistência 🌿
+-- Interface web leve e intuitiva
 
 📌 Objetivo
-
-Promover práticas agrícolas mais eficientes e sustentáveis por meio de tecnologia acessível, ajudando produtores a gerenciar informações de forma simples e prática.
+-- Promover práticas agrícolas mais eficientes e sustentáveis por meio de tecnologia acessível, ajudando produtores a gerenciar informações de forma simples e prática.
 
 🧭 Diagrama de Classes
 classDiagram
